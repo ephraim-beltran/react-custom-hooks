@@ -22,10 +22,11 @@ export function useFetch(url, headers, handleErrorCode = handleError) {
         setStatus("error");
         setError(error);
         console.error(error);
+      } finally {
+        return () => controller.abort();
       }
     }
     fetchData(url);
-    return () => controller.abort();
   }, [url]);
 
   return [data, status, error];
