@@ -1,8 +1,8 @@
 import { useState as o, useEffect as E } from "react";
 function R(r, s, a = b) {
-  const n = new AbortController(), [c, t] = o("idle"), [u, w] = o(null), [h, i] = o(null);
+  const n = new AbortController(), [c, t] = o("idle"), [u, w] = o(null), [i, l] = o(null);
   return E(() => {
-    async function l(d) {
+    async function h(d) {
       t("loading");
       try {
         const e = await fetch(d, {
@@ -13,11 +13,13 @@ function R(r, s, a = b) {
         const f = await e.json();
         w(f), t("success");
       } catch (e) {
-        t("error"), i(e), console.error(e);
+        t("error"), l(e), console.error(e);
+      } finally {
+        return () => n.abort();
       }
     }
-    return l(r), () => n.abort();
-  }, [r]), [u, c, h];
+    h(r);
+  }, [r]), [u, c, i];
 }
 function b(r) {
   switch (r) {

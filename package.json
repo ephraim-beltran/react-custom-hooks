@@ -3,7 +3,7 @@
   "description": "A collection of custom React hooks",
   "private": true,
   "author": "Ephraim Beltran",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "module": "dist/index.es.js",
   "exports": {
@@ -26,6 +26,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "custom-hooks": "github:ephraim-beltran/react-custom-hooks",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite-plugin-dts": "^4.2.1"
